@@ -17,7 +17,7 @@ def update_readme():
     lines.append('---------------\n')
     lines.append('<table>\n')
     for i, (fname, out) in enumerate(classify.classify_images('train-set')):
-        if i == 0 or i % 10 == 0:
+        if i == 0 or i % 5 == 0:
             lines.append('<tr>\n')
         lines.append('  <td>\n\n ![Training Image {}]({})\n'.format(i, fname))
     lines.append('</table>\n\n\n')

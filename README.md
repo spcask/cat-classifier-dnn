@@ -134,6 +134,7 @@ Training Images
   <td>
 
  ![Training Image 4](train-set/004-not.png)
+<tr>
   <td>
 
  ![Training Image 5](train-set/005-not.png)
@@ -165,6 +166,7 @@ Training Images
   <td>
 
  ![Training Image 14](train-set/014-cat.png)
+<tr>
   <td>
 
  ![Training Image 15](train-set/015-not.png)
@@ -196,6 +198,7 @@ Training Images
   <td>
 
  ![Training Image 24](train-set/024-cat.png)
+<tr>
   <td>
 
  ![Training Image 25](train-set/025-cat.png)
@@ -227,6 +230,7 @@ Training Images
   <td>
 
  ![Training Image 34](train-set/034-not.png)
+<tr>
   <td>
 
  ![Training Image 35](train-set/035-not.png)
@@ -258,6 +262,7 @@ Training Images
   <td>
 
  ![Training Image 44](train-set/044-not.png)
+<tr>
   <td>
 
  ![Training Image 45](train-set/045-not.png)
@@ -289,6 +294,7 @@ Training Images
   <td>
 
  ![Training Image 54](train-set/054-cat.png)
+<tr>
   <td>
 
  ![Training Image 55](train-set/055-not.png)
@@ -320,6 +326,7 @@ Training Images
   <td>
 
  ![Training Image 64](train-set/064-not.png)
+<tr>
   <td>
 
  ![Training Image 65](train-set/065-not.png)
@@ -351,6 +358,7 @@ Training Images
   <td>
 
  ![Training Image 74](train-set/074-not.png)
+<tr>
   <td>
 
  ![Training Image 75](train-set/075-not.png)
@@ -382,6 +390,7 @@ Training Images
   <td>
 
  ![Training Image 84](train-set/084-cat.png)
+<tr>
   <td>
 
  ![Training Image 85](train-set/085-not.png)
@@ -413,6 +422,7 @@ Training Images
   <td>
 
  ![Training Image 94](train-set/094-cat.png)
+<tr>
   <td>
 
  ![Training Image 95](train-set/095-not.png)
@@ -444,6 +454,7 @@ Training Images
   <td>
 
  ![Training Image 104](train-set/104-cat.png)
+<tr>
   <td>
 
  ![Training Image 105](train-set/105-not.png)
@@ -475,6 +486,7 @@ Training Images
   <td>
 
  ![Training Image 114](train-set/114-not.png)
+<tr>
   <td>
 
  ![Training Image 115](train-set/115-not.png)
@@ -506,6 +518,7 @@ Training Images
   <td>
 
  ![Training Image 124](train-set/124-cat.png)
+<tr>
   <td>
 
  ![Training Image 125](train-set/125-not.png)
@@ -537,6 +550,7 @@ Training Images
   <td>
 
  ![Training Image 134](train-set/134-cat.png)
+<tr>
   <td>
 
  ![Training Image 135](train-set/135-cat.png)
@@ -568,6 +582,7 @@ Training Images
   <td>
 
  ![Training Image 144](train-set/144-cat.png)
+<tr>
   <td>
 
  ![Training Image 145](train-set/145-cat.png)
@@ -599,6 +614,7 @@ Training Images
   <td>
 
  ![Training Image 154](train-set/154-not.png)
+<tr>
   <td>
 
  ![Training Image 155](train-set/155-not.png)
@@ -630,6 +646,7 @@ Training Images
   <td>
 
  ![Training Image 164](train-set/164-cat.png)
+<tr>
   <td>
 
  ![Training Image 165](train-set/165-not.png)
@@ -661,6 +678,7 @@ Training Images
   <td>
 
  ![Training Image 174](train-set/174-cat.png)
+<tr>
   <td>
 
  ![Training Image 175](train-set/175-cat.png)
@@ -692,6 +710,7 @@ Training Images
   <td>
 
  ![Training Image 184](train-set/184-not.png)
+<tr>
   <td>
 
  ![Training Image 185](train-set/185-cat.png)
@@ -723,6 +742,7 @@ Training Images
   <td>
 
  ![Training Image 194](train-set/194-not.png)
+<tr>
   <td>
 
  ![Training Image 195](train-set/195-not.png)
@@ -754,6 +774,7 @@ Training Images
   <td>
 
  ![Training Image 204](train-set/204-not.png)
+<tr>
   <td>
 
  ![Training Image 205](train-set/205-not.png)
