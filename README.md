@@ -1039,7 +1039,7 @@ directories.
 
 What More?
 ----------
-By turning the learning parameters (number of iterations and learning
+By tuning the learning parameters (number of iterations and learning
 rate), it is possible to alter the accuracy. The accuracy was observed
 to be between 70% and 80% for most tests.
 
