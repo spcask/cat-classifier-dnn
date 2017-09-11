@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import classify
+import os
 
 def update_readme():
     """Update README.md with visualizations for data sets."""
@@ -12,6 +13,23 @@ def update_readme():
         footer = text[text.index(end_mark):]
 
     lines = []
+
+    dirname = 'plots'
+    layer = '0'
+    for filename in sorted(os.listdir(dirname)):
+        l = filename[1]
+        u = filename[3:5]
+
+        if l != layer:
+            layer = l
+            lines.append('\n')
+            lines.append('### Layer {} Activations\n'.format(l))
+
+        alt = 'Layer {} Unit {} Activations'.format(l, u)
+        img = os.path.join(dirname, filename)
+        lines.append('![{}]({})\n'.format(alt, img))
+
+    lines.append('\n\n')
 
     lines.append('Training Images\n')
     lines.append('---------------\n')

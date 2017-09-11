@@ -35,8 +35,8 @@ the top-level directory of this project.
         ./model.py
 
     To alter the learning parameters, look for the `train()` function in
-    this file, edit the values of `count` and `alpha` variables and run
-    this script again.
+    this file, edit the values of `iterations` and `alpha` variables and
+    run this script again.
 
  4. Classify arbitrary 64x64 PNG images in the [`extra-set`][T3]
     directory with the following command. You can copy any image into
@@ -59,62 +59,61 @@ the top-level directory of this project.
 
 Weight Plots
 ------------
-Here are the graphical plots of the red, blue and green channel weights.
-The fourth image is a plot of the weights of all the channels.
+Here are the graphical plots of the activations in each unit in each
+layer. Each image is a visualization of what the activations in a
+specific unit looks like. For example, the first image for layer 1 is
+the visualization of the activations of the first unit in the first
+hidden layer.
 
-![R Channel Weights][WR]
-![G Channel Weights][WG]
-![B Channel Weights][WB]
-![All Channel Weights][W]
-
-[WR]: plots/wr.png
-[WG]: plots/wg.png
-[WB]: plots/wb.png
-[W]: plots/w.png
-
-Note: These plots look tiny because they are 64x64 images. If you want
-to zoom, try opening the image in a new tab and then zooming it.
-
-Here is a brief description of each plot.
-
- 1. The first plot contains the plot of the weights for the red
-    channel. The red area is where the neuron assigns positive weights
-    to the red component of the pixels. The cyan area is where the
-    neuron assigns negative weights to the red component of the pixels.
-    Note that red, orange, yellow, purple, gray and white are examples
-    of colors that have positive red component, so the weights would
-    affect the red component of these colors.
-
-    All positive weights are normalized with respect to the maximum
-    positive weight. All negative weights are normalized with respect to
-    the minimum positive weight.
-
- 2. The second plot contains the plot of the weights for the green
-    channel. The green area represents positive weights and the magenta
-    area represents negative weights. The weights are normalized as
-    explained in the first point. It is easy to see that the model has
-    associated very negative weights with the presence of green
-    component around the edge of the image, perhaps because such images
-    are typical of landscapes.
-
- 3. The third plot contains the plot of the weights for the blue
-    channel. The blue area represents positive weights and the yellow
-    area represents negative weights. The weights are normalized as
-    explained in the first point.
-
- 4. The fourth plot contains the plot of the weights for all the
-    channels. All weights are normalized to a positive real number
-    between 0 and 1. This means that the plot is more colorful but the
-    negative weights are not easy to visualize.
-
-    I could not come up with a clever way to color-code negative weights
-    of each channel while color-coding the positive weights of
-    the other two channels and still display the negative and positive
-    weights of each channel. That is why I am simply plotting all
-    (r, g, b) weights normalized to positive real numbers.
-
+Each pixel in an image below represents the activation in a specific
+unit for the corresponding pixel in the input image. The activation for
+each component (red, green and blue) for each pixel in each unit is
+computed separately. Then the activations of red, green and blue
+components in each pixel is combined and shown as a single pixel in an
+image below.
 
 <!-- BEGIN AUTO -->
+
+### Layer 1 Activations
+![Layer 1 Unit 01 Activations](plots/l1a01.png)
+![Layer 1 Unit 02 Activations](plots/l1a02.png)
+![Layer 1 Unit 03 Activations](plots/l1a03.png)
+![Layer 1 Unit 04 Activations](plots/l1a04.png)
+![Layer 1 Unit 05 Activations](plots/l1a05.png)
+![Layer 1 Unit 06 Activations](plots/l1a06.png)
+![Layer 1 Unit 07 Activations](plots/l1a07.png)
+![Layer 1 Unit 08 Activations](plots/l1a08.png)
+![Layer 1 Unit 09 Activations](plots/l1a09.png)
+![Layer 1 Unit 10 Activations](plots/l1a10.png)
+
+### Layer 2 Activations
+![Layer 2 Unit 01 Activations](plots/l2a01.png)
+![Layer 2 Unit 02 Activations](plots/l2a02.png)
+![Layer 2 Unit 03 Activations](plots/l2a03.png)
+![Layer 2 Unit 04 Activations](plots/l2a04.png)
+![Layer 2 Unit 05 Activations](plots/l2a05.png)
+![Layer 2 Unit 06 Activations](plots/l2a06.png)
+![Layer 2 Unit 07 Activations](plots/l2a07.png)
+![Layer 2 Unit 08 Activations](plots/l2a08.png)
+![Layer 2 Unit 09 Activations](plots/l2a09.png)
+![Layer 2 Unit 10 Activations](plots/l2a10.png)
+
+### Layer 3 Activations
+![Layer 3 Unit 01 Activations](plots/l3a01.png)
+![Layer 3 Unit 02 Activations](plots/l3a02.png)
+![Layer 3 Unit 03 Activations](plots/l3a03.png)
+![Layer 3 Unit 04 Activations](plots/l3a04.png)
+![Layer 3 Unit 05 Activations](plots/l3a05.png)
+![Layer 3 Unit 06 Activations](plots/l3a06.png)
+![Layer 3 Unit 07 Activations](plots/l3a07.png)
+![Layer 3 Unit 08 Activations](plots/l3a08.png)
+![Layer 3 Unit 09 Activations](plots/l3a09.png)
+![Layer 3 Unit 10 Activations](plots/l3a10.png)
+
+### Layer 4 Activations
+![Layer 4 Unit 01 Activations](plots/l4a01.png)
+
+
 Training Images
 ---------------
 <table>
@@ -813,12 +812,12 @@ Test Results
   <td>
 
   ![Test Image 4](test-set/004-cat.png)<br>
-  <span>cat (pass)</span>
+  <span>not (fail)</span>
 <tr>
   <td>
 
   ![Test Image 5](test-set/005-not.png)<br>
-  <span>cat (fail)</span>
+  <span>not (pass)</span>
   <td>
 
   ![Test Image 6](test-set/006-cat.png)<br>
@@ -851,7 +850,7 @@ Test Results
   <td>
 
   ![Test Image 13](test-set/013-not.png)<br>
-  <span>cat (fail)</span>
+  <span>not (pass)</span>
   <td>
 
   ![Test Image 14](test-set/014-not.png)<br>
@@ -939,7 +938,7 @@ Test Results
   <td>
 
   ![Test Image 34](test-set/034-not.png)<br>
-  <span>cat (fail)</span>
+  <span>not (pass)</span>
 <tr>
   <td>
 
@@ -969,7 +968,7 @@ Test Results
   <td>
 
   ![Test Image 41](test-set/041-cat.png)<br>
-  <span>cat (pass)</span>
+  <span>not (fail)</span>
   <td>
 
   ![Test Image 42](test-set/042-cat.png)<br>
@@ -990,7 +989,7 @@ Test Results
   <td>
 
   ![Test Image 46](test-set/046-cat.png)<br>
-  <span>cat (pass)</span>
+  <span>not (fail)</span>
   <td>
 
   ![Test Image 47](test-set/047-cat.png)<br>
@@ -1013,8 +1012,9 @@ Out of 50 test samples, 41 were correctly classified.
 The test accuracy is: 82.00%.
 <!-- END AUTO -->
 
-Alter the learning parameters in `count` and `alpha` variables in
-`train()` function of `model.py` to alter the test accuracy.
+Alter the learning parameters in `iterations` and `alpha` variables in
+`train()` and `backward` functions, respectively, of `model.py` to alter
+the test accuracy.
 
 
 Training and Test Sets
@@ -1035,22 +1035,3 @@ directories.
 [T3]: ./extra-set
 [H1]: ./h5data
 [H2]: ./h5toimg.py
-
-
-What More?
-----------
-By tuning the learning parameters (number of iterations and learning
-rate), it is possible to alter the accuracy. The accuracy was observed
-to be between 70% and 80% for most tests.
-
-An accuracy of 80% is not great because 1 out of every 5 predictions
-would be false which is not impressive. But it is not bad either
-considering that this model used just one single neuron. A human brain
-contains about 100 billion neurons and a production-grade neural network
-today has at least a thousand neurons and may have upto a million
-neurons.
-
-We can extend this experiment by adding more neurons in mulitple layers
-and finding ways to visualize the models of multi-layer neural networks
-to gain insight into how a trained model makes decisions which might
-lead us to new insight about the data itself.

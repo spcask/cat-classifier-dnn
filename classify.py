@@ -26,7 +26,7 @@ def classify_images(dirname, verbose=False):
         # Read RGBA channels from image file.
         img = plt.imread(filename)
 
-        # Ignore the alpha channel.
+        # Ignore the alpha channel (the A channel).
         img = img[:,:,:3]
 
         # Add the image to our data set.
@@ -40,13 +40,17 @@ def classify_images(dirname, verbose=False):
     # column vector.
     x = images.reshape(images.shape[0], -1).T
 
+    # Load the model parameters from JSON.
     with open('model.json') as f:
         j = json.load(f)
 
-    w, b = j['w'], j['b']
-    w = np.array(w)
-    y = model.classify(w, b, x)
+    # Convert the parameters to numpy arrays.
+    params = [[np.array(w), np.array(b), g] for w, b, g in j]
 
+    # Classify the given set of inputs.
+    y = model.classify(params, x)
+
+    # Print the classification results.
     results = []
     for filename, output in zip(filenames, y[0]):
         result = 'cat' if output == 1 else 'not'
