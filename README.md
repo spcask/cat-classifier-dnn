@@ -1,17 +1,17 @@
 Cat Classifier
 ==============
-This is a tiny experiment to visualize the weights of an image
-classifier as a graphical plot.
+This is a tiny experiment to visualize the activations of each unit of a
+neural network based image classifier as a graphical plot.
 
-The image classifier in this experiment is a single neuron (yes, a
-single neuron) that uses the sigmoid function as its activation
-function.
+The image classifier in this experiment is based on a deep neural
+network that has 3 hidden layers with 10 units each and a single output
+layer. The hidden layers use the ReLU activation function and the output
+layer uses the sigmoid activation function.
 
-Although the model trained in this experiment works with about
-70% to 80% accuracy, that's not the primary concern of this experiment.
-The primary concern of this experiment is to visualize the weights in a
-trained model and see if it offers any insight into how a trained model
-makes decisions.
+Although the model trained in this experiment works with about 80%
+accuracy, that's not the primary concern of this experiment. The primary
+concern of this experiment is to visualize the activations in each unit
+of a trained model.
 
 
 Development Setup
@@ -50,15 +50,12 @@ the top-level directory of this project.
 
         ./plotmodel.py
 
-    This generates four images [`wr.png`][WR], [`wg.png`][WG],
-    [`wb.png`][WB] and [`w.png`][W]. These are plots of the weights for
-    each channel (R, G and B channels) and an overall plot of all
-    weights, respectively. These plots are explained in a little more
-    detail in the next section.
+    This generates activation plots for each unit in the neural network.
+    This is explained further in the next section.
 
 
-Weight Plots
-------------
+Activation Plots
+----------------
 Here are the graphical plots of the activations in each unit in each
 layer. Each image is a visualization of what the activations in a
 specific unit looks like. For example, the first image for layer 1 is
