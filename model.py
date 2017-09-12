@@ -193,32 +193,29 @@ def forward(params, x):
     cache = []
 
     a = x
-    cache.append((None, x))
 
     for (w, b, activation) in params:
         z = np.dot(w, a) + b
+        cache.append((a, z))
         a = g(activation)(z)
-        cache.append((z, a))
 
     return a, cache
 
 
-def backward(params, y, cache):
+def backward(params, a, y, cache):
     """Perform backward propagation in the neural-network.
 
     Arguments:
       params (list): Parameter list of the model.
+      a: Activation outputs from the output layer after forward propagation.
+      y: Labelled outputs from training set.
       cache (list): Cache returned by forward() function.
-      x (numpy.ndarray): Labelled output matrix.
     """
     # Learning rate.
     alpha = 0.005
 
     # Number of training samples.
     m = y.shape[1]
-
-    # Activation output from the last layer.
-    _, a = cache[-1]
 
     # dL/da of the last year, where L is the loss function.
     da = (- y / a + (1 - y) / (1 - a))
@@ -230,13 +227,11 @@ def backward(params, y, cache):
     # In each iteration, params, z and a are the parameters, weighted
     # sum of inputs and activataion of the current layer. z_ and a_ are
     # the weighted sum of inputs and activation of the previous layer.
-    for params, (z, a), (z_, a_) in zip(reversed(params),
-                                        reversed(cache[1:]),
-                                        reversed(cache[:-1])):
+    for params, (a_prev, z) in zip(reversed(params), reversed(cache)):
         w, b, activation = params
 
         dz = da * g_derivative(activation)(z)
-        dw = np.dot(dz, a_.T) / m
+        dw = np.dot(dz, a_prev.T) / m
         db = np.sum(dz, axis=1, keepdims=True) / m
 
         params[0] = w - alpha * dw
@@ -278,7 +273,7 @@ def train(x, y):
         c = np.sum(- y * np.log(a) - (1 - y) * np.log(1 - a)) / m
 
         y = y.reshape(a.shape)
-        backward(params, y, cache)
+        backward(params, a, y, cache)
 
         if ((i + 1) % 100 == 0):
             print('iteration: {} of {}; cost: {:.6f}'.format(i + 1, iterations, c))

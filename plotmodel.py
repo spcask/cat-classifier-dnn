@@ -44,11 +44,15 @@ if __name__ == '__main__':
     # no two inputs are same by virtue of x being an identity matrix.
     # Therefore, cache contains the activations for each possible input
     # unit being turned on.
-    _, cache = model.forward(params, x)
+    a, cache = model.forward(params, x)
+
+    # Extract all activations from the cache. The output 'a' from
+    # forward propagation is the activation from the output layer.
+    activations = [x for x, _ in cache[1:]] + [a]
 
     # For each layer in network ...
-    for l, (_, a_l) in enumerate(cache[1:], 1):
+    for l, a in enumerate(activations, 1):
         # For each unit in layer ...
-        for i, a_l_i in enumerate(a_l, 1):
+        for i, a_i in enumerate(a, 1):
             # Plot the activations of the unit.
-            plot(l, i, a_l_i)
+            plot(l, i, a_i)
