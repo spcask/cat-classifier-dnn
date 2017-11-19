@@ -57,10 +57,10 @@ the top-level directory of this project.
 Activation Plots
 ----------------
 Here are the graphical plots of the activations in each unit in each
-layer. Each image is a visualization of what the activations in a
-specific unit looks like. For example, the first image for layer 1 is
-the visualization of the activations of the first unit in the first
-hidden layer.
+layer for every pixel component (i.e. R, G and B components). Each image
+is a visualization of what the activations in a specific unit looks
+like. For example, the first image for layer 1 is the visualization of
+the activations of the first unit in the first hidden layer.
 
 Each pixel in an image below represents the activation in a specific
 unit for the corresponding pixel in the input image. The activation for

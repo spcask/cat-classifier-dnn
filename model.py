@@ -194,7 +194,7 @@ def forward(params, x):
 
     a = x
 
-    for (w, b, activation) in params:
+    for w, b, activation in params:
         z = np.dot(w, a) + b
         cache.append((a, z))
         a = g(activation)(z)
@@ -275,7 +275,7 @@ def train(x, y):
         y = y.reshape(a.shape)
         backward(params, a, y, cache)
 
-        if ((i + 1) % 100 == 0):
+        if i % 100 == 0:
             print('iteration: {} of {}; cost: {:.6f}'.format(i + 1, iterations, c))
 
     return params
